@@ -5,6 +5,12 @@
 
            DISPLAY "***************************************************"
            CALL "CBL_OC_NANOSLEEP" USING BY CONTENT 80000000
+           EXEC SQL
+                   DECLARE EMPTBL CURSOR FOR
+                   SELECT * 
+                       FROM EMPLOYEE
+                   ORDER BY LNAME
+           END-EXEC
            DISPLAY "*                                                 *"
            CALL "CBL_OC_NANOSLEEP" USING BY CONTENT 80000000
            DISPLAY "*                                                 *"
